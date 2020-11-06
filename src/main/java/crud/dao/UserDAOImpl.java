@@ -2,17 +2,18 @@ package crud.dao;
 
 import crud.model.User;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
+@Repository
 public class UserDAOImpl implements UserDAO{
 
     @PersistenceContext
-    EntityManager entityManager;
+    private EntityManager entityManager;
+
     @Override
     public void add(User user) {
         entityManager.persist(user);
@@ -30,7 +31,6 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    @Transactional
     public void delete(int id) {
         User user = get(id);
         entityManager.remove(user);

@@ -5,17 +5,16 @@ import crud.dao.UserDAOImpl;
 import crud.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
     @Autowired
-    UserDAO userDAO;
+    private UserDAO userDAO;
 
     @Override
-    @Transactional
     public void add(User user) {
         userDAO.add(user);
     }
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-
+    @Transactional
     public void delete(int id) {
         userDAO.delete(id);
     }
