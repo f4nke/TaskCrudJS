@@ -12,14 +12,13 @@
     <tr>
         <th>ID</th>
         <th>NAME</th>
-        <th>Operations</th>
+        <th>ROLE</th>
     </tr>
 
-    <tr th:each="user:${userList}">
-        <td th:utext="${user.getId()}">ID</td>
-        <td th:utext="${user.getName()}">NAME</td>
-        <td><a th:href="@{/users/edit/{id}(id=${user.getId()})}">Edit</a></td>
-        <td><a th:href="@{/users/remove/{id}(id=${user.getId()})}">Remove</a></td>
+    <tr>
+        <td th:utext="${id}">id</td>
+        <td th:utext="${username}">Username</td>
+        <td th:utext="${roles}">Roles</td>
     </tr>
     <a th:href="@{/users/new}">Add new User</a>
     <a th:href=@{/logout}">Logout</a>
