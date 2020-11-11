@@ -10,18 +10,19 @@ import java.util.Set;
 // Имя роли должно соответствовать шаблону: «ROLE_ИМЯ», например, ROLE_USER.
 @Entity
 @Table(name = "roles")
-public class Role implements GrantedAuthority {
+public class Role implements GrantedAuthority{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String role;
 
     @ManyToMany(mappedBy = "roles")
-    Set<User> users;
+    Set<User> users = new HashSet<>();
 
-    public Role(Long id, String role) {
+    public Role(Long id, String role, Set<User> users) {
         this.id = id;
         this.role = role;
+        this.users = users;
     }
 
     public Role() {

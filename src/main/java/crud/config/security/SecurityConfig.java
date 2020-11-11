@@ -33,10 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //указываем логику обработки при логине
                 .successHandler(new LoginSuccessHandler())
                 // указываем action с формы логина
-                .loginProcessingUrl("/login")
+//                .loginProcessingUrl("/login")
                 // Указываем параметры логина и пароля с формы логина
-                .usernameParameter("username")
-                .passwordParameter("password")
+                .usernameParameter("j_username")
+                .passwordParameter("j_password")
                 // даем доступ к форме логина всем
                 .permitAll();
 

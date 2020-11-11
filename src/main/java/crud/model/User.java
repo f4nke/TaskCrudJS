@@ -18,12 +18,11 @@ public class User implements UserDetails {
     private String name;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "users_role", joinColumns = @JoinColumn(name = "roles_id"))
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_role")
     private Set<Role> roles = new HashSet<>();
 
     public User() {
-
     }
 
     public User(Long id, String name, String password, Set<Role> roles) {
