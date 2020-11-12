@@ -13,30 +13,31 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     @Column(unique = true)
     private String name;
+    private String username;
     private String password;
 
-    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Role.class, cascade=CascadeType.ALL)
     @JoinTable(name = "users_role")
     private Set<Role> roles = new HashSet<>();
 
     public User() {
     }
 
-    public User(Long id, String name, String password, Set<Role> roles) {
+    public User(int id, String name, String password, Set<Role> roles) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.roles = roles;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -61,7 +62,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return name;
+        return username;
     }
 
     @Override

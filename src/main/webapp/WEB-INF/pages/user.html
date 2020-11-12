@@ -18,9 +18,10 @@
     <tr>
         <td th:utext="${id}">id</td>
         <td th:utext="${username}">Username</td>
-        <td th:utext="${roles}">Roles</td>
+        <td th:utext="${role}">Roles</td>
     </tr>
-    <a th:href="@{/users/new}">Add new User</a>
-    <a th:href=@{/logout}">Logout</a>
 </table>
+<br/>
+<a href="/logout">Logout</a>
 </body>
+</html>

@@ -52,7 +52,7 @@ public class UserController {
     @PostMapping("/admin/edit")
     public String edit(@ModelAttribute("editUser") User user){
         userService.update(user);
-        return "redirect:/users";
+        return "redirect:/admin";
     }
 
 
@@ -65,6 +65,6 @@ public class UserController {
     @GetMapping("/admin/remove/{id}")
     public String deleteUser(@PathVariable int id) {
         userService.delete(id);
-        return "redirect:/users";
+        return "redirect:/admin";
     }
 }

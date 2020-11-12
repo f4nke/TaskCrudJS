@@ -6,13 +6,14 @@
     <title>Edit user</title>
 </head>
 <body>
-<form th:method="POST" th:action="@{/users/edit}" th:object="${editUser}">
+<form th:method="POST" th:action="@{/admin/edit}" th:object="${editUser}">
 
     <input type="hidden" name="id" th:value="${id}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>
     <td colspan="2"><input type="submit" value="Save" /></td>
-    <a th:href=@{/logout}">Logout</a>
 </form>
+<br/>
+<a href="/logout">Logout</a>
 </body>
 </html>

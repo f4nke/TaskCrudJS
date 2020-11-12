@@ -1,5 +1,6 @@
 package crud.dao;
 
+import crud.model.Role;
 import crud.model.User;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void add(User user) {
+        user.getRoles().add(new Role("USER"));
         entityManager.persist(user);
     }
 
@@ -27,6 +29,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void update(User user) {
+        user.getRoles().add(new Role("USER"));
         entityManager.merge(user);
     }
 

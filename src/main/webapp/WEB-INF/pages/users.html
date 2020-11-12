@@ -12,16 +12,18 @@
     <tr>
         <th>ID</th>
         <th>NAME</th>
-        <th>Operations</th>
+        <th>ROLE</th>
     </tr>
 
     <tr th:each="user:${userList}">
         <td th:utext="${user.getId()}">ID</td>
         <td th:utext="${user.getName()}">NAME</td>
-        <td><a th:href="@{/users/edit/{id}(id=${user.getId()})}">Edit</a></td>
-        <td><a th:href="@{/users/remove/{id}(id=${user.getId()})}">Remove</a></td>
+        <td th:utext="${user.getRoles()}">ROLE</td>
+        <td><a th:href="@{/admin/edit/{id}(id=${user.getId()})}">Edit</a></td>
+        <td><a th:href="@{/admin/remove/{id}(id=${user.getId()})}">Remove</a></td>
     </tr>
-    <a th:href="@{/users/new}">Add new User</a>
-    <a th:href=@{/logout}">Logout</a>
 </table>
+<br/>
+<a th:href="@{/admin/new}">Add new User</a>
+<a href="/logout">Logout</a>
 </body>
