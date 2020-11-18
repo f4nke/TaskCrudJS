@@ -1,5 +1,6 @@
 package crud.model;
 
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -95,5 +96,13 @@ public class User implements UserDetails {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getRolesToString(){
+        StringBuilder sb = new StringBuilder();
+        for (Role i : roles){
+            sb.append(i.getRole() + " ");
+        }
+        return String.valueOf(sb);
     }
 }
