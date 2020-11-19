@@ -1,0 +1,106 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title></title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Users</h1>-->
+
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>ID</th>-->
+<!--        <th>NAME</th>-->
+<!--        <th>ROLE</th>-->
+<!--    </tr>-->
+
+<!--    <tr>-->
+<!--        <td th:utext="${id}">id</td>-->
+<!--        <td th:utext="${username}">Username</td>-->
+<!--        <td th:utext="${role}">Roles</td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--<br/>-->
+<!--<a href="/logout">Logout</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>UserPage</title>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="navbar-text" th:text="${user.name}" style="color: white" >
+        ${name}
+    </div>
+
+    <div class="navbar-text" style="color: white">
+
+        &nbsp with roles: &nbsp
+    </div>
+
+    <div class="navbar-text" th:text="${user.getRolesToString()}" style="color: white">
+        ${role}
+    </div>
+
+    <form class="btn ml-auto">
+        <buttont class="btn btn-outline-dark " ><a href="/logout" style="color: gray" >Logout</a></buttont>
+    </form>
+</nav>
+<br/>
+
+
+<div class="row">
+
+    <div class="container col-2">
+        <ul class="nav nav-pills flex-column" role="tablist">
+            <li>
+                <a class="nav-link active" href="#userPage" role="tab" data-toggle="pill">User</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="tab-content container col-10">
+        <div role="tabpanel" id="userPage" class="tab-pane active">
+            <div class="container-fluid">
+                <h1>User information-page</h1>
+
+                <table border="3" class="table table-striped table-hover">
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Roles</th>
+                    </tr>
+
+                    <tr>
+                        <td th:utext="${user.id}">id</td>
+                        <td th:utext="${user.name}">Username</td>
+                        <td th:utext="${user.getRolesToString()}">Roles</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

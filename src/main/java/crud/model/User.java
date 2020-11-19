@@ -14,7 +14,7 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Integer id;
     @Column(unique = true)
     private String name;
     private String username;
@@ -27,14 +27,15 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(int id, String name, String password, Set<Role> roles) {
+    public User(Integer id, String name, String username, String password, Set<Role> roles) {
         this.id = id;
         this.name = name;
         this.password = password;
         this.roles = roles;
+        this.username = username;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

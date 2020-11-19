@@ -17,7 +17,6 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public void add(User user) {
-        user.getRoles().add(new Role("USER"));
         entityManager.persist(user);
     }
 
@@ -34,13 +33,13 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Integer id) {
         User user = get(id);
         entityManager.remove(user);
     }
 
     @Override
-    public User get(int id) {
+    public User get(Integer id) {
         return entityManager.find(User.class, id);
     }
 }

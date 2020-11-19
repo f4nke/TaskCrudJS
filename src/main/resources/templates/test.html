@@ -1,0 +1,45 @@
+<button type="button" class="btn btn-info" data-toggle="modal"
+        data-target="#edit" th:attrappend="data-target=${user.getId()}">
+    Edit
+</button>
+
+<!-- Modal Edit -->
+<div class="modal" id="edit" tabindex="-1" role="dialog"
+     th:attrappend="id=${user.getId()}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <form th:method="POST"
+                  th:action="@{/admin/{id}/(id=${user.getId()})}">
+                <div class="modal-body">
+
+                    <div class="form-group text-center font-weight-bold">
+                        <label for="id" class="form-control-label">ID</label>
+                        <input type="text" class="form-control" th:name="id"
+                               th:value="${user.getId()}" id="id">
+                    </div>
+                    <div class="form-group text-center font-weight-bold">
+                        <label for="name"
+                               class="form-control-label">Name</label>
+                        <input type="text" class="form-control"
+                               th:name="firstName"
+                               th:value="${user.getFirstName()}" id="name">
+                    </div>
+                    <div class="form-group text-center font-weight-bold">
+                        <label for="last_name" class="form-control-label">Last
+                            name</label>
+                        <input type="text" class="form-control"
+                               th:name="lastName"
+                               th:value="${user.getLastName()}" id="last_name">
+                    </div>
+                    <div class="form-group text-center font-weight-bold">
+                        <label for="age" class="form-control-label">Age</label>
+                        <input type="text" class="form-control" th:name="age"
+                               th:value="${user.getAge()}" id="age">
+                    </div>
